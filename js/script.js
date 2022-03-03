@@ -1,153 +1,172 @@
+// webp
 function testWebP(callback) {
-
 	var webP = new Image();
 	webP.onload = webP.onerror = function () {
-	callback(webP.height == 2);
+		callback(webP.height == 2);
 	};
-	webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
-	}
-	
-	testWebP(function (support) {
-	
+	webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+}
+testWebP(function (support) {
 	if (support == true) {
-	document.querySelector('body').classList.add('webp');
+		document.querySelector('body').classList.add('webp');
 	}else{
-	document.querySelector('body').classList.add('no-webp');
+		document.querySelector('body').classList.add('no-webp');
 	}
-	});
+});
 // burger
-$(document).ready(function () {
-	$('.header__burger').click(function (event) {
-		$('.header__burger, .header__menu, .header, .header__phone').toggleClass('active');
-	});
-});
-$(document).ready(function () {
-	$('.swiper').slick({
-		slidesToShow: 2,
-		slidesToScroll: 2,
-		arrows: true,
-		prevArrow: '<div class="swiper-prev"><img src="icons/icons/icons.svg#swiper-prev" alt=""/></div>',
-		nextArrow: '<div class="swiper-next"><img src="icons/icons/icons.svg#swiper-next" alt=""/></div>',
-		dots: true,
-		dotsClass: 'swiper-pagination',
-		responsive: [
-			{
-			  breakpoint: 993,
-			  settings: {
-				 slidesToShow: 1,
-				 slidesToScroll: 1,
-				 dots: false
-			  }
-			},
-			{
-			  breakpoint: 451,
-			  settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				arrows: false,
-				dots: false
-			  }
-			}
-		 ]
-	});
-}); 
-$(document).ready(function () {
-	$('.start__swiper').slick({
-		arrows: false,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		autoplay: true,
-		autoplaySpeed: 5000,
-		speed: 1000,
-	});
-}); 
-// services service__item
-$(document).ready(function () {
-	$('#item1').show();
-	$('#item2, #item3, #item4, #item5, #item6').hide();
-	$('#button1').click(function () {
-		$('#button1').toggleClass('active');
-		$('#button2, #button3, #button4, #button5, #button6').removeClass('active');
-		$('#item1').show();
-		$('#item2, #item3, #item4, #item5, #item6').hide();
+function burger(){
+	let header__burger = document.querySelector('.header__burger'),
+		 header__menu = document.querySelector('.header__menu'),
+		 header__phone = document.querySelector('.header__phone'),
+		 header = document.querySelector('.header');
+	header__burger.addEventListener('click', function(){
+		if (header__burger.classList.contains('active'), header__menu.classList.contains('active'), header.classList.contains('active'), header__phone.classList.contains('active')){
+			header__burger.classList.remove('active') || header__menu.classList.remove('active') || header.classList.remove('active') || header__phone.classList.remove('active')
+		} else {
+			header__burger.classList.add('active') || header__menu.classList.add('active') || header.classList.add('active') || header__phone.classList.add('active')
+		}
 	})
-	$('#button2').click(function () {
-		$('#button2').toggleClass('active');
-		$('#button1, #button3, #button4, #button5, #button6').removeClass('active');
-		$('#item2').show();
-		$('#item1, #item3, #item4, #item5, #item6').hide();
-	})
-	$('#button3').click(function () {
-		$('#button3').toggleClass('active');
-		$('#button1, #button2, #button4, #button5, #button6').removeClass('active');
-		$('#item3').show();
-		$('#item1, #item2, #item4, #item5, #item6').hide();
-	})
-	$('#button4').click(function () {
-		$('#button4').toggleClass('active');
-		$('#button1, #button2, #button3, #button5, #button6').removeClass('active');
-		$('#item4').show();
-		$('#item1, #item2, #item3, #item5, #item6').hide();
-	})
-	$('#button5').click(function () {
-		$('#button5').toggleClass('active');
-		$('#button1, #button2, #button3, #button4, #button6').removeClass('active');
-		$('#item5').show();
-		$('#item1, #item2, #item3, #item4, #item6').hide();
-	})
-	$('#button6').click(function () {
-		$('#button6').toggleClass('active');
-		$('#button1, #button2, #button3, #button4, #button5').removeClass('active');
-		$('#item6').show();
-		$('#item1, #item2, #item3, #item4, #item5').hide();
-	})
-});
+}
+burger();
+// swipers
+new Swiper(".review-container", {
+	direction: "horizontal",
+	loop: !1,
+	initialSlide: 0,
+	speed: 1500,
+	slidesPerView: 2,
+	spaceBetween: 50,
+	autoplay: {
+		delay: 5000,
+		disableOnInteraction: true,
+	},
+	breakpoints: {
+		768: {
+			slidesPerView: 2,
+			spaceBetween: 59
+		},
+		300: {
+			slidesPerView: 1,
+			spaceBetween: 50
+		}
+	},
+	keyboard: {
+		enabled: !0,
+		onlyInViewport: !1
+	},
+	navigation: {
+		nextEl: ".swiper-next",
+		prevEl: ".swiper-prev"
+	},
+	pagination: {
+		el: ".swiper-pagination",
+		clickable: true
+	}
+})
+new Swiper(".start-container", {
+	direction: "horizontal",
+	loop: !0,
+	initialSlide: 0,
+	speed: 2000,
+	slidesPerView: 1,
+	spaceBetween: 0,
+	centeredSlides: true,
+	autoplay: {
+		delay: 5000,
+		disableOnInteraction: false,
+	},
+	keyboard: {
+		enabled: !0,
+		onlyInViewport: !1
+	}
+})
 // accordion
-$(document).ready(function () {
+function accordionMain(){
 	let accordion = (function (element) {
 		let _getItem = function (elements, className) {
-		  let element = undefined;
-		  elements.forEach(function (item) {
-			if (item.classList.contains(className)) {
-			  element = item;
-			}
-		  });
-		  return element;
+			let element = undefined;
+			elements.forEach(function (item) {
+				if (item.classList.contains(className)) {
+					element = item;
+				}
+			});
+			return element;
 		};
 		return function () {
-		  let _mainElement = {},
-			_items = {}, 
-			_contents = {};
-		  let _actionClick = function (e) {
-			if (!e.target.classList.contains('accordion__header')) { 
-			  return;
-			}
-			e.preventDefault();
-			let header = e.target,
-			  item = header.parentElement,
-			  itemActive = _getItem(_items, 'show');
-			if (itemActive === undefined) {
-			  item.classList.add('show');
-			} else {
-			  itemActive.classList.remove('show');
-			  if (itemActive !== item) {
-				item.classList.add('show');
-			  }
-			}
-		  },
+			let _mainElement = {},
+				_items = {}, 
+				_contents = {};
+			let _actionClick = function (e) {
+				if (!e.target.classList.contains('accordion__header')) { 
+					return;
+				}
+				e.preventDefault();
+				let header = e.target,
+					item = header.parentElement,
+					itemActive = _getItem(_items, 'show');
+				if (itemActive === undefined) {
+					item.classList.add('show');
+				} else {
+					itemActive.classList.remove('show');
+					if (itemActive !== item) {
+						item.classList.add('show');
+					}
+				}
+			},
 			_setupListeners = function () {
-			  _mainElement.addEventListener('click', _actionClick);
+				_mainElement.addEventListener('click', _actionClick);
 			};
-		  return {
-			init: function (element) {
-			  _mainElement = (typeof element === 'string' ? document.querySelector(element) : element);
-			  _items = _mainElement.querySelectorAll('.accordion__item');
-			  _setupListeners();
-			}
-		  }
-  
+			return {
+				init: function (element) {
+					_mainElement = (typeof element === 'string' ? document.querySelector(element) : element);
+					_items = _mainElement.querySelectorAll('.accordion__item');
+					_setupListeners();
+				}
+			}	
 		}
-	  })();
-	  let accordion1 = accordion();
-	  accordion1.init('#accordion');
-});
+	})();
+	let accordion1 = accordion();
+	accordion1.init('#accordion');
+}
+accordionMain()
+// services service__item
+function switchs(){
+	let item1 = document.querySelector('#item1')
+	let item2 = document.querySelector('#item2')
+	let item3 = document.querySelector('#item3')
+	let item4 = document.querySelector('#item4')
+	let item5 = document.querySelector('#item5')
+	let item6 = document.querySelector('#item6')
+	let button1 = document.querySelector('#button1')
+	let button2 = document.querySelector('#button2')
+	let button3 = document.querySelector('#button3')
+	let button4 = document.querySelector('#button4')
+	let button5 = document.querySelector('#button5')
+	let button6 = document.querySelector('#button6')
+	item1.classList.add('show')
+	button1.addEventListener("click", function() {
+		item1.classList.add('show')
+		item2.classList.remove('show') || item3.classList.remove('show') || item4.classList.remove('show') || item5.classList.remove('show') || item6.classList.remove('show')
+	})
+	button2.addEventListener("click", function() {
+		item2.classList.add('show')
+		item1.classList.remove('show') || item3.classList.remove('show') || item4.classList.remove('show') || item5.classList.remove('show') || item6.classList.remove('show')
+	})
+	button3.addEventListener("click", function() {
+		item3.classList.add('show')
+		item2.classList.remove('show') || item1.classList.remove('show') || item4.classList.remove('show') || item5.classList.remove('show') || item6.classList.remove('show')
+	})
+	button4.addEventListener("click", function() {
+		item4.classList.add('show')
+		item2.classList.remove('show') || item3.classList.remove('show') || item1.classList.remove('show') || item5.classList.remove('show') || item6.classList.remove('show')
+	})
+	button5.addEventListener("click", function() {
+		item5.classList.add('show')
+		item2.classList.remove('show') || item3.classList.remove('show') || item4.classList.remove('show') || item1.classList.remove('show') || item6.classList.remove('show')
+	})
+	button6.addEventListener("click", function() {
+		item6.classList.add('show')
+		item2.classList.remove('show') || item3.classList.remove('show') || item4.classList.remove('show') || item5.classList.remove('show') || item1.classList.remove('show')
+	})
+}
+switchs()

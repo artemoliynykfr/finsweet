@@ -654,7 +654,7 @@ section {
 .firstscreen .start__blog .start__body .start__text {
   width: 40vw;
   height: 100%;
-  background-image: url(..//blog/start_img.webp);
+  background-image: url(../img/blog/start_img.webp);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: auto;
@@ -688,6 +688,10 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.firstscreen .start__blog .start__body .start__swiper .swiper-wrapper {
+  width: 60vw;
 }
 
 .firstscreen .start__blog .start__body .start__swiper .swiper-slide {
@@ -1055,7 +1059,16 @@ section {
   margin: 0 !important;
 }
 
-.cta img {
+.cta__img {
+  width: 30%;
+  max-width: 100%;
+}
+
+.cta__img:last-child {
+  width: 70%;
+}
+
+.cta__img img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -1133,7 +1146,6 @@ section {
   margin-top: 94px;
   min-height: 400px;
   max-height: 500px;
-  position: relative;
 }
 
 .review__body .swiper-slide {
@@ -1178,38 +1190,47 @@ section {
 }
 
 .review__body .swiper-pagination {
-  list-style: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.review__body .swiper-pagination-bullet {
+  width: 32px;
+  height: 4px;
+  background-color: #939191 !important;
+  border-radius: 0;
+  opacity: 1;
+}
+
+.review__body .swiper-pagination-bullet-active {
+  background-color: #FF6433 !important;
+}
+
+.review__body .swiper-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.review__body .swiper-pagination li {
-  margin-left: 15px;
-}
-
-.review__body .swiper-pagination li button {
-  width: 32px;
-  height: 4px;
-  background-color: #939191;
-  border: none;
-  font-size: 0;
-}
-
-.review__body .swiper-pagination li.slick-active button {
-  background-color: #FF6433;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 170px;
+  position: absolute;
+  right: 0;
+  bottom: -23px;
 }
 
 .review__body .swiper .swiper-prev,
 .review__body .swiper .swiper-next {
-  position: absolute;
-  bottom: 0;
   width: 62px;
   height: 62px;
   border-radius: 50%;
@@ -1233,14 +1254,6 @@ section {
   transition: 400ms ease 0s;
   width: auto;
   height: 35px;
-}
-
-.review__body .swiper .swiper-prev {
-  right: 82px;
-}
-
-.review__body .swiper .swiper-next {
-  right: 0;
 }
 
 .review__body .swiper .swiper-next:hover img {
@@ -1622,6 +1635,11 @@ section {
 
 .services__body .services__info .services__item {
   padding: 64px 48px;
+  display: none;
+}
+
+.services__body .services__info .services__item.show {
+  display: block;
 }
 
 .services__body .services__info .services__item h3 {
@@ -1767,7 +1785,7 @@ section {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(..//main/cta_bg-2.webp);
+  background-image: url(../img/main/cta_bg-2.webp);
 }
 
 .solution__body .solution__item .solution__text {
@@ -1799,7 +1817,7 @@ section {
 }
 
 .solution__body .solution__item:first-child {
-  background-image: url(..//about/process_img.webp);
+  background-image: url(../img/about/process_img.webp);
 }
 
 .solution__body .solution__item:first-child .solution__text {
@@ -1866,7 +1884,7 @@ section {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: auto;
-  background-image: url(..//about/team_1.webp);
+  background-image: url(../img/about/team_1.webp);
   height: 430px;
   width: 100%;
   position: relative;
@@ -1884,24 +1902,24 @@ section {
 }
 
 .team__items .team__item:nth-child(2) {
-  background-image: url(..//about/team_2.webp);
+  background-image: url(../img/about/team_2.webp);
   background-position: center top;
 }
 
 .team__items .team__item:nth-child(3) {
-  background-image: url(..//about/team_3.webp);
+  background-image: url(../img/about/team_3.webp);
 }
 
 .team__items .team__item:nth-child(4) {
-  background-image: url(..//about/team_4.webp);
+  background-image: url(../img/about/team_4.webp);
 }
 
 .team__items .team__item:nth-child(5) {
-  background-image: url(..//about/team_5.webp);
+  background-image: url(../img/about/team_5.webp);
 }
 
 .team__items .team__item:last-child {
-  background-image: url(..//about/team_6.webp);
+  background-image: url(../img/about/team_6.webp);
 }
 
 .team__items .team__item .team__text {
@@ -2562,6 +2580,10 @@ section {
     height: 430px;
   }
 
+  .firstscreen .start__blog .start__body .start__swiper .swiper-wrapper {
+    width: 100vw;
+  }
+
   .firstscreen .start__body {
     display: grid;
     grid-row-gap: 50px;
@@ -2630,7 +2652,7 @@ section {
             justify-content: center;
   }
 
-  .cta img {
+  .cta__img {
     display: none;
   }
 
@@ -2652,14 +2674,6 @@ section {
   .review__body .swiper-slide .content .review__contact {
     width: 230px;
     margin: 0px auto 24px auto;
-  }
-
-  .review__body .swiper .swiper-prev {
-    right: calc(50% - 31px + 42px);
-  }
-
-  .review__body .swiper .swiper-next {
-    right: calc(50% - 31px);
   }
 
   .footer.-footer {
@@ -2870,6 +2884,10 @@ section {
 
   .brand__body .brand__items {
     grid-row-gap: 10px;
+  }
+
+  .review__body .swiper-buttons {
+    display: none;
   }
 
   .faq__body h3 {

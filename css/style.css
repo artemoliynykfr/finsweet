@@ -534,9 +534,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin: 0 auto;
 }
 
@@ -571,6 +570,7 @@
   border-radius: 50%;
   position: relative;
   top: -15px;
+  margin-right: 30px;
 }
 
 .service__body {
@@ -843,10 +843,13 @@
   height: 150px;
 }
 
-.faq__body .accordion__item.show .accordion__header .decor img {
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+.faq__body .accordion__item.show .accordion__header .decor .line1 {
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 .faq__body .accordion__item .accordion__header {
@@ -861,35 +864,34 @@
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-}
-
-.faq__body .accordion__item .accordion__header::before {
-  content: "How long should a car repair take?";
+  cursor: pointer;
 }
 
 .faq__body .accordion__item .accordion__header .decor {
-  max-width: 51.08px;
+  max-width: 51px;
+  width: 100%;
   height: 48px;
   background-color: #FF6433;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  z-index: -1;
+  position: relative;
+  z-index: 0;
 }
 
-.faq__body .accordion__item .accordion__header .decor img {
-  height: 30px;
-  -webkit-transition: -webkit-transform 400ms ease 0s;
-  transition: -webkit-transform 400ms ease 0s;
-  -o-transition: transform 400ms ease 0s;
-  transition: transform 400ms ease 0s;
-  transition: transform 400ms ease 0s, -webkit-transform 400ms ease 0s;
+.faq__body .accordion__item .accordion__header .decor .line {
+  background-color: #fff;
+  height: 25px;
+  width: 2px;
+  position: absolute;
+  left: calc(50% - 1px);
+  top: calc(50% - 12.5px);
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+.faq__body .accordion__item .accordion__header .decor .line2 {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 .faq__body .accordion__item .accordion__content {
@@ -913,7 +915,7 @@
 }
 
 .footer.-footer {
-  height: 400px;
+  height: auto;
   position: relative;
   margin-top: 400px;
 }
@@ -925,13 +927,19 @@
 
 .footer.-footer .container.iframe {
   position: absolute;
-  top: -80%;
-  left: calc(50% - 640px) !important;
+  top: -60%;
   width: 100%;
+  height: 400px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
 }
 
-.footer.-footer iframe {
+.footer.-footer .container.iframe iframe {
   width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .footer__body {
@@ -1922,6 +1930,7 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
   -webkit-transition: 400ms ease 0s;
   -o-transition: 400ms ease 0s;
   transition: 400ms ease 0s;
@@ -1973,6 +1982,18 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.link picture {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2160,10 +2181,6 @@ section {
     height: 400px;
   }
 
-  .footer.-footer .container.iframe {
-    left: calc(50% - 555px) !important;
-  }
-
   .services__body .service__items .service__item {
     width: 240px;
   }
@@ -2239,7 +2256,6 @@ section {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    row-gap: 80px;
   }
 
   .process__body h2 {
@@ -2249,6 +2265,7 @@ section {
   .process__body .process__item {
     text-align: center;
     width: 100%;
+    margin-bottom: 80px;
   }
 
   .process__body .process__item .subtext {
@@ -2262,10 +2279,6 @@ section {
 
   .process__body .process__item .item__number {
     margin-right: 20px;
-  }
-
-  .footer.-footer .container.iframe {
-    left: calc(50% - 450px) !important;
   }
 
   .work__item {
@@ -2403,7 +2416,7 @@ section {
   }
 
   .header.active .header__body {
-    height: 100%;
+    height: 100vh;
   }
 
   .header__logo {
@@ -2673,8 +2686,7 @@ section {
   }
 
   .footer.-footer {
-    margin-top: 600px;
-    height: auto;
+    margin-top: 0;
   }
 
   .footer.-footer img {
@@ -2682,13 +2694,11 @@ section {
   }
 
   .footer.-footer .container.iframe {
-    left: 0 !important;
-    top: -450px !important;
-    width: 100vw;
+    top: -400px;
   }
 
-  .footer.-footer .container.iframe iframe {
-    width: 100vw;
+  .footer.-footer .container {
+    max-width: none;
   }
 
   .footer .last__body {
@@ -2883,14 +2893,6 @@ section {
 
   .footer {
     height: 630px;
-  }
-
-  .footer.-footer .container.iframe {
-    padding: 0;
-  }
-
-  .footer.-footer .container.iframe iframe {
-    width: 100%;
   }
 
   .footer__body {
@@ -3104,10 +3106,6 @@ section {
 
   .process__body .process__item .item__text {
     max-width: 100%;
-  }
-
-  .faq__body .accordion__item .accordion__header .decor {
-    margin-left: 20px;
   }
 
   .faq__body .accordion__item .accordion__content {

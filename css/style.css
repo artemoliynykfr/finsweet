@@ -979,7 +979,7 @@
 .footer__body .footer__item .subtitle,
 .footer__body .footer__address h3,
 .footer__body .footer__address .subtitle {
-  color: #fff;
+  color: #fff !important;
   max-width: 463px;
 }
 
@@ -2697,10 +2697,6 @@ section {
   .review__body .swiper-slide .content .review__contact {
     width: 230px;
     margin: 0px auto 24px auto;
-  }
-
-  .footer.-footer {
-    margin-top: 0;
   }
 
   .footer.-footer img {

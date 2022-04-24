@@ -9,18 +9,18 @@ function testWebP(callback) {
 testWebP(function (support) {
 	if (support == true) {
 		document.querySelector('body').classList.add('webp');
-	}else{
+	} else {
 		document.querySelector('body').classList.add('no-webp');
 	}
 });
 // burger
-function burger(){
+function burger() {
 	let header__burger = document.querySelector('.header__burger'),
-		 header__menu = document.querySelector('.header__menu'),
-		 header__phone = document.querySelector('.header__phone'),
-		 header = document.querySelector('.header');
-	header__burger.addEventListener('click', function(){
-		if (header__burger.classList.contains('active'), header__menu.classList.contains('active'), header.classList.contains('active'), header__phone.classList.contains('active')){
+		header__menu = document.querySelector('.header__menu'),
+		header__phone = document.querySelector('.header__phone'),
+		header = document.querySelector('.header');
+	header__burger.addEventListener('click', function () {
+		if (header__burger.classList.contains('active'), header__menu.classList.contains('active'), header.classList.contains('active'), header__phone.classList.contains('active')) {
 			header__burger.classList.remove('active') || header__menu.classList.remove('active') || header.classList.remove('active') || header__phone.classList.remove('active')
 		} else {
 			header__burger.classList.add('active') || header__menu.classList.add('active') || header.classList.add('active') || header__phone.classList.add('active')
@@ -29,7 +29,7 @@ function burger(){
 }
 burger();
 // swipers
-if (document.querySelector('.body__home')){
+if (document.querySelector('.body__home')) {
 	// home swiper
 	new Swiper(".review-container", {
 		direction: "horizontal",
@@ -66,12 +66,12 @@ if (document.querySelector('.body__home')){
 		}
 	})
 	// accordion
-	function accordion(){
+	function accordion() {
 		const items = document.querySelectorAll('.accordion__header')
 		items.forEach(item => {
 			item.addEventListener('click', () => {
 				const parent = item.parentNode
-				if (parent.classList.contains('show')){
+				if (parent.classList.contains('show')) {
 					parent.classList.remove('show')
 				} else {
 					document
@@ -84,7 +84,7 @@ if (document.querySelector('.body__home')){
 	}
 	accordion()
 }
-if (document.querySelector('.body__blog')){
+if (document.querySelector('.body__blog')) {
 	// blog swiper
 	new Swiper(".start-container", {
 		direction: "horizontal",
@@ -104,9 +104,9 @@ if (document.querySelector('.body__blog')){
 		}
 	})
 }
-if (document.querySelector('.body__services')){
-// services service__item
-function switchs(){
+if (document.querySelector('.body__services')) {
+	// services service__item
+	function switchs() {
 		let item1 = document.querySelector('#item1')
 		let item2 = document.querySelector('#item2')
 		let item3 = document.querySelector('#item3')
@@ -120,30 +120,91 @@ function switchs(){
 		let button5 = document.querySelector('#button5')
 		let button6 = document.querySelector('#button6')
 		item1.classList.add('show')
-		button1.addEventListener("click", function() {
+		button1.addEventListener("click", function () {
 			item1.classList.add('show')
 			item2.classList.remove('show') || item3.classList.remove('show') || item4.classList.remove('show') || item5.classList.remove('show') || item6.classList.remove('show')
 		})
-		button2.addEventListener("click", function() {
+		button2.addEventListener("click", function () {
 			item2.classList.add('show')
 			item1.classList.remove('show') || item3.classList.remove('show') || item4.classList.remove('show') || item5.classList.remove('show') || item6.classList.remove('show')
 		})
-		button3.addEventListener("click", function() {
+		button3.addEventListener("click", function () {
 			item3.classList.add('show')
 			item2.classList.remove('show') || item1.classList.remove('show') || item4.classList.remove('show') || item5.classList.remove('show') || item6.classList.remove('show')
 		})
-		button4.addEventListener("click", function() {
+		button4.addEventListener("click", function () {
 			item4.classList.add('show')
 			item2.classList.remove('show') || item3.classList.remove('show') || item1.classList.remove('show') || item5.classList.remove('show') || item6.classList.remove('show')
 		})
-		button5.addEventListener("click", function() {
+		button5.addEventListener("click", function () {
 			item5.classList.add('show')
 			item2.classList.remove('show') || item3.classList.remove('show') || item4.classList.remove('show') || item1.classList.remove('show') || item6.classList.remove('show')
 		})
-		button6.addEventListener("click", function() {
+		button6.addEventListener("click", function () {
 			item6.classList.add('show')
 			item2.classList.remove('show') || item3.classList.remove('show') || item4.classList.remove('show') || item5.classList.remove('show') || item1.classList.remove('show')
 		})
 	}
 	switchs()
 }
+// animation
+gsap.utils.toArray('.content-left').forEach((el, index) => {
+	let tl = gsap.timeline({
+		scrollTrigger: {
+			trigger: el,
+			start: "top bottom",
+			toggleActions: "play none none reverse",
+		}
+	})
+	tl
+		.set(el, { transformOrigin: 'center center' })
+		.fromTo(el, { x: '-200px' }, { x: "0px", duration: .8, immediateRender: false })
+})
+gsap.utils.toArray('.content-right').forEach((el, index) => {
+	let tl = gsap.timeline({
+		scrollTrigger: {
+			trigger: el,
+			start: "top bottom",
+			toggleActions: "play none none reverse",
+		}
+	})
+	tl
+		.set(el, { transformOrigin: 'center center' })
+		.fromTo(el, { x: '200px' }, { x: "0px", duration: .8, immediateRender: false })
+})
+gsap.utils.toArray('.content-top').forEach((el, index) => {
+	let tl = gsap.timeline({
+		scrollTrigger: {
+			trigger: el,
+			start: "top bottom",
+			toggleActions: "play none none reverse",
+		}
+	})
+	tl
+		.set(el, { transformOrigin: 'center center' })
+		.fromTo(el, { y: '-200px' }, { y: "0px", duration: .8, immediateRender: false })
+})
+gsap.utils.toArray('.content-bottom').forEach((el, index) => {
+	let tl = gsap.timeline({
+		scrollTrigger: {
+			trigger: el,
+			start: "top bottom",
+			toggleActions: "play none none reverse",
+		}
+	})
+	tl
+		.set(el, { transformOrigin: 'center center' })
+		.fromTo(el, { y: '200px' }, { y: "0px", duration: .8, immediateRender: false })
+})
+gsap.utils.toArray('.content-opacity').forEach((el, index) => {
+	let tl = gsap.timeline({
+		scrollTrigger: {
+			trigger: el,
+			start: "top bottom",
+			toggleActions: "play none none reverse",
+		}
+	})
+	tl
+		.set(el, { transformOrigin: 'center center' })
+		.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 1, immediateRender: false })
+})
